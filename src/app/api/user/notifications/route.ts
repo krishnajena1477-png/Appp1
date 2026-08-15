@@ -1,0 +1,1 @@
+import { prisma } from '@/lib/db';import { ok,handlerError } from '@/lib/api';import { requireUser } from '@/lib/security/auth';export async function GET(){try{const u=await requireUser();return ok(await prisma.notification.findMany({where:{OR:[{userId:u.id},{userId:null}]},orderBy:{createdAt:'desc'}}))}catch(e){return handlerError(e)}}

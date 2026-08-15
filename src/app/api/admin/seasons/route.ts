@@ -1,0 +1,3 @@
+import { prisma } from '@/lib/db';import { ok,handlerError } from '@/lib/api';import { requireAdmin } from '@/lib/security/auth';import { seasonSchema } from '@/lib/validation/schemas';
+export async function GET(){try{await requireAdmin();return ok(await prisma.season.findMany({include:{_count:{select:{questions:true}}},orderBy:{order:'asc'}}))}catch(e){return handlerError(e)}}
+export async function POST(req:Request){try{const admin=await requireAdmin();const data=seasonSchema.parse(await req.json());const s=await prisma.season.create({data});await prisma.auditLog.create({data:{actorId:admin.id,action:'SEASON_CREATE',targetEntity:'Season',targetId:s.id,requestId:crypto.randomUUID()}});return ok(s,201)}catch(e){return handlerError(e)}}

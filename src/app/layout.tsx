@@ -1,0 +1,3 @@
+import './globals.css';import Link from 'next/link';
+export const metadata={title:'Season MCQ Platform',description:'Production-ready season based MCQ examination platform'};
+export default function RootLayout({children}:{children:React.ReactNode}){return <html lang="en"><body><nav className="mx-auto flex max-w-6xl items-center justify-between p-4"><Link className="font-bold text-cyan-300" href="/">SeasonExam</Link><div className="flex gap-4 text-sm"><Link href="/dashboard">Dashboard</Link><Link href="/seasons">Seasons</Link><Link href="/admin">Admin</Link></div></nav>{children}<footer className="mx-auto max-w-6xl p-6 text-sm text-slate-400">Privacy • Terms • Contact • Secure quiz engine</footer></body></html>}

@@ -1,0 +1,2 @@
+import { prisma } from '@/lib/db';import { ok,handlerError } from '@/lib/api';import { requireUser } from '@/lib/security/auth';
+export async function GET(){try{const user=await requireUser();const seasons=await prisma.season.findMany({where:{status:'PUBLISHED'},include:{_count:{select:{questions:true}},progress:{where:{userId:user.id}},attempts:{where:{userId:user.id},orderBy:{createdAt:'desc'},take:1}} ,orderBy:{order:'asc'}});return ok(seasons.map(s=>({...s,questions:undefined,statusLabel:s.progress[0]?.status||'AVAILABLE'})))}catch(e){return handlerError(e)}}

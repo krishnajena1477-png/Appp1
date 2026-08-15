@@ -1,0 +1,1 @@
+import { prisma } from '@/lib/db';import { ok,handlerError } from '@/lib/api';import { requireAdmin } from '@/lib/security/auth';export async function GET(){try{await requireAdmin();return ok(await prisma.auditLog.findMany({orderBy:{createdAt:'desc'},take:100}))}catch(e){return handlerError(e)}}
