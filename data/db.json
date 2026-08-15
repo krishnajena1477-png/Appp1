@@ -1,0 +1,91 @@
+{
+  "users": [
+    {
+      "id": "admin-1",
+      "fullName": "Admin User",
+      "email": "admin@example.com",
+      "password": "Admin@12345",
+      "role": "ADMIN",
+      "active": true
+    },
+    {
+      "id": "user-1",
+      "fullName": "Demo User",
+      "email": "user@example.com",
+      "password": "User@12345",
+      "role": "USER",
+      "active": true
+    }
+  ],
+  "sessions": {},
+  "seasons": [
+    {
+      "id": "season-1",
+      "name": "Season 1: Fundamentals",
+      "description": "Seeded MCQ season",
+      "status": "PUBLISHED",
+      "order": 1,
+      "passingMethod": "PERCENTAGE",
+      "passingValue": 80,
+      "showAnswerReview": true,
+      "timerMinutes": null,
+      "maxAttempts": null
+    }
+  ],
+  "questions": [
+    {
+      "id": "q1",
+      "seasonId": "season-1",
+      "text": "Which layer calculates final scores?",
+      "explanation": "Scores must be calculated on the trusted server.",
+      "marks": 1,
+      "displayOrder": 1,
+      "options": [
+        {
+          "id": "q1o1",
+          "text": "Frontend browser",
+          "displayOrder": 1,
+          "isCorrect": false
+        },
+        {
+          "id": "q1o2",
+          "text": "Trusted backend service",
+          "displayOrder": 2,
+          "isCorrect": true
+        },
+        {
+          "id": "q1o3",
+          "text": "CSS engine",
+          "displayOrder": 3,
+          "isCorrect": false
+        }
+      ]
+    },
+    {
+      "id": "q2",
+      "seasonId": "season-1",
+      "text": "How many options can a question have?",
+      "explanation": "Options are dynamic and not hardcoded to four.",
+      "marks": 1,
+      "displayOrder": 2,
+      "options": [
+        {
+          "id": "q2o1",
+          "text": "Exactly four only",
+          "displayOrder": 1,
+          "isCorrect": false
+        },
+        {
+          "id": "q2o2",
+          "text": "A dynamic configurable count",
+          "displayOrder": 2,
+          "isCorrect": true
+        }
+      ]
+    }
+  ],
+  "attempts": [],
+  "progress": [],
+  "notifications": [],
+  "auditLogs": []
+}

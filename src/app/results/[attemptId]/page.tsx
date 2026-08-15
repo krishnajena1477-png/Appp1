@@ -1,0 +1,1 @@
+export default function Results({params}:{params:{attemptId:string}}){return <main className="mx-auto max-w-6xl p-6"><h1 className="text-3xl font-bold">Result</h1><p className="mt-3">Attempt ID: {params.attemptId}</p><div className="card mt-6">Server-calculated summary and optional answer review are available at <code>/api/attempts/{params.attemptId}/result</code>.</div></main>}
